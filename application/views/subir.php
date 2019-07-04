@@ -14,8 +14,10 @@
                 <div class="example">
                  
 
-                  <form action="http://localhost/serviciosoap/es/cargararchivo" method="post" enctype="multipart/form-data">
-                    <input type="file" name="mi_archivo">
+                  <form action="http://localhost/cliente/es/cargar" method="post" enctype="multipart/form-data">
+                    <input type="file" name="mi_archivo"  accept="application/pdf,application/vnd.ms-excel">
+                    <input type="text" name="firma"  >
+                    
                     <input type="submit" value="Submit">
                     </form> 
                     
