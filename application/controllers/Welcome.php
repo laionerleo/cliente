@@ -88,12 +88,14 @@ class Welcome extends CI_Controller {
 	function cargar() {
 		$d = array();
 		$this->Msecurity->url_and_lan($d);
-		//$this->load->view('index', $d);
+		$firma=$this->input->post("firma");
+		echo $firma;
 		
+	
 		$mi_archivo = 'mi_archivo';
         $config['upload_path'] = 'archivos/';
         $config['file_name'] = "nombre_archivo";
-        $config['allowed_types'] = "*";
+        $config['allowed_types'] = "pdf | doc";
         $config['max_size'] = "50000";
         $config['max_width'] = "2000";
         $config['max_height'] = "2000";
@@ -102,15 +104,29 @@ class Welcome extends CI_Controller {
 		
         if (!$this->upload->do_upload($mi_archivo)) {
 			//*** ocurrio un error
-			//$this->load->view('bajar', $d);
             $data['uploadError'] = $this->upload->display_errors();
             print_r($this->upload->display_errors());
             return;
 		}
-		//$this->load->view('login', $d);
          print_r($this->upload->data());
 		
 		
+	}
+	
+	public function download(){
+        
+            //load download helper
+            $this->load->helper('download');
+            
+            //get file info from database
+            //$fileInfo = $this->file->getRows(array('id' => $id));
+            
+            //file path
+            $file = 'archivos/nombre_archivo.png';
+            
+            //download file from directory
+            force_download($file, NULL);
+        
     }
 
 	public function error404($lan='es')

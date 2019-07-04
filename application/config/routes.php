@@ -15,6 +15,8 @@ $route[$l.'login']                 		    = 'Welcome/login';
 $route[$l.'subir-archivo']                  = 'Welcome/subir';
 $route[$l.'cargar']                          = 'Welcome/cargar';
 
+$route[$l.'descargar']                          = 'Welcome/download';
+
 $route[$l.'bajar-archivo']                  = 'Welcome/bajar';
 $route[$l.'login']                 		    = 'Welcome/login';
 
